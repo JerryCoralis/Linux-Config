@@ -16,8 +16,4 @@
 [xmodmap tutorial](http://xahlee.info/linux/linux_xmodmap_tutorial.html)  
 [guide line for xmodmap that Brian followed](https://blacketernal.wordpress.com/set-up-key-mappings-with-xmodmap/)
 
-
 ---
-
-
-testing
