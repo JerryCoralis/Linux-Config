@@ -5,7 +5,6 @@
 --
 --
 --
---
 -- Import modules
 -- We need these for the core system
 import XMonad hiding ( (|||) ) -- don't use the normal |||
