@@ -1,4 +1,4 @@
--- Author: Jonah Miller
+-- Author: Jonah Miller original file inherited from Brian Yee
 -- xmonad config file (modified default).
 --
 --
