@@ -14,5 +14,10 @@
 > Now, since Caps Lock is a Lock Key, you cannot have it behave like a Modifier Key without mapping it to one. Caps Lock by itself cannot function as a Modifier Key.`
 
 [xmodmap tutorial](http://xahlee.info/linux/linux_xmodmap_tutorial.html)  
-[guide line for xmodmap that Brian followed](https://blacketernal.wordpress.com/set-up-key-mappings-with-xmodmap/)  
+[guide line for xmodmap that Brian followed](https://blacketernal.wordpress.com/set-up-key-mappings-with-xmodmap/)
+
+
 ---
+
+
+testing
