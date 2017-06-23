@@ -13,5 +13,5 @@ Caps Lock is a Lock Key while keys such as Ctrl, Alt, and Shift are Modifier Key
 It's apparent from their names that Modifier Keys modify the function of the next key(s) pressed, and Lock Keys act as a toggle switch to turn on or off some particular function.
 Now, since Caps Lock is a Lock Key, you cannot have it behave like a Modifier Key without mapping it to one. Caps Lock by itself cannot function as a Modifier Key.`
 
-[xmodmap tutorial](http://xahlee.info/linux/linux_xmodmap_tutorial.html)
+[xmodmap tutorial](http://xahlee.info/linux/linux_xmodmap_tutorial.html)  
 [guide line for xmodmap that Brian followed](https://blacketernal.wordpress.com/set-up-key-mappings-with-xmodmap/)
