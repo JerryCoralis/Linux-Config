@@ -1,5 +1,6 @@
--- Author: Jonah Miller original file inherited from Brian Yee
+-- Author: Jonah Miller
 -- xmonad config file (modified default).
+--
 --
 --
 --
@@ -146,7 +147,7 @@ myXPConfig = defaultXPConfig { autoComplete = Just 500000
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch a terminal
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+    [ ((modm .|. controlMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "dmenu_run -fn Sans-14")
@@ -155,13 +156,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --, ((modm,         xK_p     ), spawn "gmrun")
 
     -- close focused window
-    , ((modm .|. shiftMask, xK_c     ), kill)
+    , ((modm .|. controlMask, xK_c     ), kill)
 
      -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)
 
     --  Reset the layouts on the current workspace to default
-    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
+    , ((modm .|. controlMask, xK_space ), setLayout $ XMonad.layoutHook conf)
 
     -- Resize viewed windows to the correct size
     , ((modm,               xK_n     ), refresh)
@@ -182,10 +183,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_Return), windows W.swapMaster)
 
     -- Swap the focused window with the next window
-    , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
+    , ((modm .|. controlMask, xK_j     ), windows W.swapDown  )
 
     -- Swap the focused window with the previous window
-    , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
+    , ((modm .|. controlMask, xK_k     ), windows W.swapUp    )
 
     -- Shrink the master area
     , ((modm,               xK_h     ), sendMessage Shrink)
@@ -214,7 +215,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
      --Quit xmonad
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
+    , ((modm .|. controlMask, xK_q     ), io (exitWith ExitSuccess))
 
     -- Restart xmonad
     , ((modm          , xK_q), spawn "xmonad --recompile; xmonad --restart")
@@ -229,13 +230,16 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xK_Print ), spawn "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/screen_shots/'")
 
     -- Enable laptop volume keys. If you prefer some weird keybinding,
-    -- you can do that too.
-    --  ((0, xF86XK_AudioRaiseVolume ), spawn "amixer -c 0 sset Master 1+ unmute")
-    --  ((0, xF86XK_AudioLowerVolume ), spawn "amixer -c 0 sset Master 1- unmute")
-    --  ((0, xF86XK_AudioMute        ), spawn "amixer sset Master toggle")
-    , ((0, xF86XK_AudioRaiseVolume ), spawn "/usr/bin/pulseaudio-ctl up")
-    , ((0, xF86XK_AudioLowerVolume ), spawn "/usr/bin/pulseaudio-ctl down")
-    , ((0, xF86XK_AudioMute        ), spawn "/usr/bin/pulseaudio-ctl mute")
+    -- you can do that too
+
+    -- was previously pulseaudio from Brian, using amixer now
+     , ((0, xF86XK_AudioRaiseVolume ), spawn "amixer -c 0 sset Master 1+ unmute")
+     , ((0, xF86XK_AudioLowerVolume ), spawn "amixer -c 0 sset Master 1- unmute")
+     --, ((0, xF86XK_AudioMute        ), spawn "amixer sset Master toggle")
+
+   --  , ((0, xF86XK_AudioRaiseVolume ), spawn "/usr/bin/pulseaudio-ctl up")
+   --  , ((0, xF86XK_AudioLowerVolume ), spawn "/usr/bin/pulseaudio-ctl down")
+   --  , ((0, xF86XK_AudioMute        ), spawn "/usr/bin/pulseaudio-ctl mute")
 
     -- Laptop brightness control
     -- requires xbacklight
@@ -264,9 +268,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-Shift-LeftArrow move focussed window to workspace to the left
     , ((modm, xK_Right               ), nextWS)
     , ((modm, xK_Left                ), prevWS)
-    , ((modm .|. shiftMask, xK_Right ), shiftToNext >> nextWS)
-    , ((modm .|. shiftMask, xK_Left  ), shiftToPrev >> prevWS)
-    , ((modm .|. shiftMask, xK_Tab   ), moveTo Next EmptyWS)
+    , ((modm .|. controlMask, xK_Right ), shiftToNext >> nextWS)
+    , ((modm .|. controlMask, xK_Left  ), shiftToPrev >> prevWS)
+    , ((modm .|. controlMask, xK_Tab   ), moveTo Next EmptyWS)
 
 -- mod-o move to workspace to the right
     -- mod-i move to workspace to the left
@@ -274,8 +278,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-Shift-I move focussed window to the workspace to the left
     , ((modm, xK_o               ), nextWS)
     , ((modm, xK_i               ), prevWS)
-    , ((modm .|. shiftMask, xK_o ), shiftToNext >> nextWS)
-    , ((modm .|. shiftMask, xK_i ), shiftToPrev >> prevWS)
+    , ((modm .|. controlMask, xK_o ), shiftToNext >> nextWS)
+    , ((modm .|. controlMask, xK_i ), shiftToPrev >> prevWS)
 
     -- Toggle to previous workspace (view only)
     , ((modm, xK_Down                ), toggleWS)
@@ -286,17 +290,17 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_u     ), focusUrgent)
 
     -- Open graphical emacs client
-    , ((modm .|. shiftMask, xK_t ), spawn "emacs")
+    , ((modm .|. controlMask, xK_t ), spawn "emacs")
 
     -- Call the file manager, Dolphin (doesn't exist)
     --    , ((modm .|. shiftMask, xK_d ), spawn "dolphin")
 
     -- Call LibreOffice office suite
     -- , ((modm .|. shiftMask, xK_o ), spawn "libreoffice")
-    , ((modm .|. shiftMask, xK_w), spawn "libreoffice")
+    , ((modm .|. controlMask, xK_w), spawn "libreoffice")
 
     -- Call Music player
-    , ((modm .|. shiftMask, xK_m ), spawn "clementine")
+    , ((modm .|. controlMask, xK_m ), spawn "clementine")
 
     ---- Call Firefox
     --, ((modm .|. shiftMask, xK_f ), spawn "firefox")
@@ -307,7 +311,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_a), spawn "google-chrome --kiosk https://www.reddit.com/r/dataisbeautiful/new/")
     , ((modm, xK_s), spawn "google-chrome --kiosk https://www.microbrewdata.com/wp-login.php")
     , ((modm, xK_y), spawn "google-chrome --kiosk https://connect.sfu.ca/zimbra/mail#1")
-    , ((modm, xK_c), spawn "google-chrome --kiosk https://www.chess.com")
     , ((modm, xK_w), spawn "google-chrome --kiosk https://www.linkedin.com/")
 
     -- Call pidgin
@@ -327,7 +330,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_e                   ), gridselectWorkspace defaultGSConfig (\ws -> W.greedyView ws . W.shift ws))
 
     -- Append a single line and date to a notes file
-    , ((modm .|. shiftMask, xK_n     ), do
+    , ((modm .|. controlMask, xK_n     ), do
          spawn ("date>>"++"/home/jerry/notes.txt")
          appendFilePrompt myXPConfig "/home/jerry/notes.txt")
 
