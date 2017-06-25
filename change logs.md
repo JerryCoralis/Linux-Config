@@ -1,4 +1,4 @@
-### [swapping `alt` and `command/super`]
+### [Swapping `alt` and `command/super`]
 - `sudo nano /usr/share/X11/xkb/symbols/pc` did not work
 - We created a simple a hidden text file called `.Xmodmap' to contain our new bindings
 - used xev in terminal to determine what the keycode for the key we wanted to rebind was. `keycode 64 =    Alt_L Meta_L` where key64 was the left alt key on mac air
@@ -15,5 +15,19 @@
 
 [xmodmap tutorial](http://xahlee.info/linux/linux_xmodmap_tutorial.html)  
 [guide line for xmodmap that Brian followed](https://blacketernal.wordpress.com/set-up-key-mappings-with-xmodmap/)
+
+---
+
+### [Enabling volumn media keys]
+- via xev, shift was held while pressing desired media keys to properly display their keycodes. 
+- the assignment for volumn up, down, mute toggle were found in /usr/include/X11/XF86keysym.h
+  ` #define XF86XK_AudioLowerVolume	0x1008FF11   /* Volume control down        */
+    #define XF86XK_AudioMute	0x1008FF12   /* Mute sound from the system */
+    #define XF86XK_AudioRaiseVolume	0x1008FF13   /* Volume control up          */`
+- these definitions were then mapped to keycode 121, 122, 123 in .Xmodmap 
+- finally in xmonad.hs, we assigned these definitons to call audio functionality
+  ` , ((0, xF86XK_AudioRaiseVolume ), spawn "amixer -c 0 sset Master 1+ unmute")`
+- doesn't work with pulseaudio, have to use amixer. 
+- mute toggle mutes, but doesn't unmute, have to swap to ubuntu to enable via UI. Line commented out for now. 
 
 ---
