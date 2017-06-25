@@ -21,9 +21,9 @@
 ### [Enabling volumn media keys]
 - via xev, shift was held while pressing desired media keys to properly display their keycodes. 
 - the assignment for volumn up, down, mute toggle were found in /usr/include/X11/XF86keysym.h
-  ` #define XF86XK_AudioLowerVolume	0x1008FF11   /* Volume control down        */  
-    #define XF86XK_AudioMute	0x1008FF12   /* Mute sound from the system */  
-    #define XF86XK_AudioRaiseVolume	0x1008FF13   /* Volume control up          */`  
+  ` #define XF86XK_AudioLowerVolume	0x1008FF11   /* Volume control down        */`
+  ` #define XF86XK_AudioMute	0x1008FF12   /* Mute sound from the system */`
+  ` #define XF86XK_AudioRaiseVolume	0x1008FF13   /* Volume control up          */`
 - these definitions were then mapped to keycode 121, 122, 123 in .Xmodmap 
 - finally in xmonad.hs, we assigned these definitons to call audio functionality
   ` , ((0, xF86XK_AudioRaiseVolume ), spawn "amixer -c 0 sset Master 1+ unmute")`
