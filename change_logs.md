@@ -39,3 +39,28 @@ use arandr to grab head name
 https://ubuntuforums.org/showthread.php?t=1656089
 
 xsetwacom set "Wacom Intuos S 2 Pen stylus" MapToOutput eDP1
+
+---
+### [Firefox transition]
+moving from Chrome to Firefox for customizable browser UI and smoother vim navigation 
+1. installed Luke Smith's browser skin for miniamal tabs, Firefox allows for customization of its UI via CSS
+
+2. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
