@@ -1,4 +1,4 @@
-### [Swapping `alt` and `command`]
+## [Swapping `alt` and `command`]
 - `sudo nano /usr/share/X11/xkb/symbols/pc` did not work
 - We created a simple a hidden text file called `.Xmodmap' to contain our new bindings
 - used xev in terminal to determine what the keycode for the key we wanted to rebind was. `keycode 64 =    Alt_L Meta_L` where key64 was the left alt key on mac air
@@ -18,7 +18,7 @@
 
 ---
 
-### [Enabling volumn media keys]
+## [Enabling volumn media keys]
 - via xev, shift was held while pressing desired media keys to properly display their keycodes. 
 - the assignment for volumn up, down, mute toggle were found in /usr/include/X11/XF86keysym.h
   ` #define XF86XK_AudioLowerVolume	0x1008FF11   /* Volume control down        */ `
@@ -31,7 +31,7 @@
 - mute toggle mutes, but doesn't unmute, have to swap to ubuntu to enable via UI. Line commented out for now. 
 
 ---
-### [Wacom tablet - designate screen]
+## [Wacom tablet - designate screen]
 `xinput --list` to determine name of device
 xsetwacom set "device name" MapToOutput "head name"
 use arandr to grab head name 
@@ -41,7 +41,7 @@ https://ubuntuforums.org/showthread.php?t=1656089
 xsetwacom set "Wacom Intuos S 2 Pen stylus" MapToOutput eDP1
 
 ---
-### [Firefox transition]
+## [Firefox transition]
 moving from Chrome to Firefox for customizable browser UI and smoother vim navigation 
 
 
