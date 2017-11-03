@@ -1,4 +1,4 @@
-### [Swapping `alt` and `command/super`]
+### [Swapping `alt` and `command`]
 - `sudo nano /usr/share/X11/xkb/symbols/pc` did not work
 - We created a simple a hidden text file called `.Xmodmap' to contain our new bindings
 - used xev in terminal to determine what the keycode for the key we wanted to rebind was. `keycode 64 =    Alt_L Meta_L` where key64 was the left alt key on mac air
