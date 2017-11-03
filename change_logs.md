@@ -54,7 +54,6 @@ eg) facebook search 'tyler' becomes `fb tyler` in the url
 | :----------- | ----------- |
 |VimFX|functions better than vimperator, more akin to vimium|
 |Stylish|CSS themes for browser skins & individual webpages|
-|Pin Upin|shortcut for pinning tabs like chrome|
 |Dorando keyconfig|bringing chrome bindings|
 
 browser skin of choice via Luke Smith, CSS code found in `firefox` folder
