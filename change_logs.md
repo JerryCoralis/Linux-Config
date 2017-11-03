@@ -54,6 +54,8 @@ moving from Chrome to Firefox for customizable browser UI and smoother vim navig
 
 browser skin of choice via Luke Smith, CSS code found in `firefox` folder
 
+---
+
 
 
 
