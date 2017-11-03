@@ -1,6 +1,6 @@
 ## [Swapping `alt` and `command`]
 - `sudo nano /usr/share/X11/xkb/symbols/pc` did not work
-- We created a simple a hidden text file called `.Xmodmap' to contain our new bindings
+- We created a simple a hidden text file called `.Xmodmap` to contain our new bindings
 - used xev in terminal to determine what the keycode for the key we wanted to rebind was. `keycode 64 =    Alt_L Meta_L` where key64 was the left alt key on mac air
 - once all the custom keybindings were completed, file is saved and ran through xmodmap via terminal `xmodmap .Xmodmap Changes were instant  
 
@@ -38,7 +38,8 @@ use arandr to grab head name
 
 https://ubuntuforums.org/showthread.php?t=1656089
 
-xsetwacom set "Wacom Intuos S 2 Pen stylus" MapToOutput eDP1
+terminal input for setting display contraint
+`xsetwacom set "Wacom Intuos S 2 Pen stylus" MapToOutput eDP1`
 
 ---
 ## [Firefox transition]
