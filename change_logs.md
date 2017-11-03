@@ -43,9 +43,17 @@ xsetwacom set "Wacom Intuos S 2 Pen stylus" MapToOutput eDP1
 ---
 ### [Firefox transition]
 moving from Chrome to Firefox for customizable browser UI and smoother vim navigation 
-1. installed Luke Smith's browser skin for miniamal tabs, Firefox allows for customization of its UI via CSS
 
-2. 
+
+|**Extensions**|**Functiion**|
+| :----------- | ----------- |
+|VimFX|functions better than vimperator, more akin to vimium|
+|Stylish|CSS themes for browser skins & individual webpages|
+|Pin Upin|shortcut for pinning tabs like chrome|
+|Dorando keyconfig|bringing chrome bindings|
+
+browser skin of choice via Luke Smith, CSS code found in `firefox` folder
+
 
 
 
