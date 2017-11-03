@@ -43,7 +43,11 @@ terminal input for setting display contraint
 
 ---
 ## [Firefox transition]
-moving from Chrome to Firefox for customizable browser UI and smoother vim navigation 
+moving from Chrome to Firefox for: custom UI, smooth vim, keyword nav
+
+keyword: right-clicking a search input allows that search to be added as a keyword.
+
+eg) facebook search 'tyler' becomes `fb tyler` in the url
 
 
 |**Extensions**|**Functiion**|
