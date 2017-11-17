@@ -61,11 +61,12 @@ browser skin of choice via Luke Smith, CSS code found in `firefox` folder
 ---
 ## [spacemacs] - neotree & \*scratch\* on startup
 ~/.spacemacs
- 
-` (defun dotspacemacs/uer-config ()
-  (neotree-toggle)
-  (switch-to-buffer-other-window "*scratch*")
-  )`
+` (defun dotspacemacs/uer-config ()  
+  (neotree-toggle)  
+  (switch-to-buffer-other-window "*scratch*")  
+  )`  
+  
+---
 
 
 
