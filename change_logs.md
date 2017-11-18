@@ -64,6 +64,9 @@ browser skin of choice via Luke Smith, CSS code found in `firefox` folder
 ` (defun dotspacemacs/uer-config ()  
   (neotree-toggle)  
   (switch-to-buffer-other-window "*scratch*")  
+    ;; Make linums relative by default
+  (with-eval-after-load 'linum
+    (linum-relative-toggle))
   )`  
   
 ---
