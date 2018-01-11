@@ -70,7 +70,26 @@ browser skin of choice via Luke Smith, CSS code found in `firefox` folder
   )`  
   
 ---
+## [xmonad] - HIDPI multi-monitors
+when a second monitors was plugged in, it displayed a portion of the primary screen instead of extending to it's own
+display. This lead to either the main laptop monitor or the external monitor having anomalies such as:
+1. Workspace displayed in only a portion of one of the screens or was abdnormally truncated.
+2. a screen meant for one monitor will overlap into another physical screen.
+3. 
 
+previous attempts via xrandr of resolving this these issues lead to unintended monitor configurations or produced no
+response. Attempts and results include:
+1. using xrandr --above or --below led to screens overlapping across the physical screens.
+2. using xrandr --fb, this lead to certain screens having the virtual screen function but didn't resolve the issue.
+3. using xrandr --pos, partially reoslved issue but the (x,y) coord have +y going in the -y direciton 
+   ie) --pos 0x1080 on a coordinates: (0x-1080)
+4. screen 0 not addressed. current = 3200x2880 to account for scaling and space for both physical monitors
+
+solution:
+using the previous failures final cli was 
+`xrandr --output eDP-1 --pos 0x1080 --panning 2560x1440+0+1080 --output DP-2 --pos 0x0`
+using command `xrandr` ensure that Screen 0: current(####x####) has dimensions enough for BOTH your monitors.
+To avoid configuration randoning snapping back to an erronous one ensure --panning has coordinate arguements.
 
 
 
