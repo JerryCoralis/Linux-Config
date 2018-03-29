@@ -1,12 +1,10 @@
 # Documentaion on my Linux Configuration
 
 ## Specifications
-Lenovo x1 carbon 5th gen
+Machine: Lenovo x1 carbon 5th gen
 
-Ubuntu 16.04
+OS: Ubuntu 16.04
 
-xmonad
+WM: xmonad
 
-google chrome
-
-spacemacs
+editor: spacemacs
