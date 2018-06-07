@@ -237,16 +237,16 @@ myXPConfig = defaultXPConfig { autoComplete = Just 500000
 }
 
 
--------------------------------------------------------------
-{- Keybindings                                             --
--------------------------------------------------------------
+------------------------------------------------------------------
+{- Keybindings                                                   -
+------------------------------------------------------------------
 K_<KEY> for windows keys, xF86XK_<KEY> for special laptop keys.
 modm for modmask.  shiftMask for shift.
 .|. for "this key and another key."
 ctrlm for what X percieves as control
 0 in the first key slot indicates "don't wait for a second key."
 spawn "command" sends a command to the shell (bash in this case).
--------------------------------------------------------------}
+------------------------------------------------------------------}
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [
 -- [Window Manipulation]
@@ -314,13 +314,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. ctrlm, xK_9), windows $ W.shift "-2")
     , ((modm .|. ctrlm, xK_8), windows $ W.shift "-3")
 
--- [screenshot]
--- selection to: clibpard, file, screen to file
+    -- screenshot ----------------------------------------------------------
+    -- selection to: clibpard, file, screen to file
     , ((0,              xK_Print), spawn "import png:- | xclip -selection c -t image/png") -- selection to clipboard
     , ((modm,           xK_Print), spawn "sleep 0.2; scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/screen_shots/'")
     , ((modm .|. ctrlm, xK_Print), spawn "scrot -b '%Y:%m:%d:%H:%S.png' -e 'mv $f ~/Pictures/screen_shots/'")
 
--- [system]
+    -- system --------------------------------------------------------------
     , ((modm,           xK_q        ), spawn "xmonad --recompile; xmonad --restart")     -- Restart xmonad
     , ((modm,           xK_F7       ), spawn "/home/jerry/.xmonad/presentation-mode.sh")
     , ((modm,           xK_F9       ), spawn "/home/jerry/.xmonad/trackpad-toggle.sh")   -- Toggle touchpad
@@ -332,7 +332,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_MonBrightnessDown ), spawn "light -U 5")
     , ((0, xF86XK_Display           ), spawn "/home/jerry/.xmonad/presentation-mode.sh") -- external projector
 
--- [audio]
+    -- audio ---------------------------------------------------------------
     , ((0,     xF86XK_AudioRaiseVolume ), spawn "amixer -c 0 sset Master 1%+ unmute")
     , ((0,     xF86XK_AudioLowerVolume ), spawn "amixer -c 0 sset Master 1%- unmute")
     , ((0,     xF86XK_AudioMute        ), spawn "amixer -q -D pulse sset Master toggle")
@@ -354,7 +354,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,           xK_Return ), spawn "env EDITOR=vim urxvt -e ranger")
 --  , ((modm,           xK_F12    ), spawn "/home/jerry/.xmonad/startup_applications.sh") -- spawn commonly used programs
     , ((modm,           xK_g      ), spawn "google-chrome --high-dpi-support=1 --force-device-scale-factor=1.2") -- <1.5 = scale out
-    , ((modm .|. ctrlm, xK_g      ), spawn "google-chrome --high-dpi-supoort=1 --force-device-scale-factor=1.2 https://calendar.google.com                      i https://mail.sfu.ca/owa/#authRedirect=true")
+    , ((modm .|. ctrlm, xK_g      ), spawn "google-chrome --high-dpi-supoort=1 --force-device-scale-factor=1.2 https://mail.google.com https://mail.sfu.ca/owa")
     , ((modm,           xK_t      ), spawn "emacs25")
     , ((modm .|. ctrlm, xK_t      ), spawn "emacs25 ~/Dropbox/org/life.org")
     , ((modm .|. ctrlm, xK_s      ), shellPrompt myXPConfig {autoComplete = Nothing }) -- Displays a shell prompt TODO: over dmenU?
@@ -362,6 +362,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
          spawn ("date>>"++"/home/jerry/notes.txt")
          appendFilePrompt myXPConfig "/home/jerry/notes.txt")
 
+    -- system --------------------------------------------------------------
 -- [Displays & screens] -- all this will be ported to dmenu soon, not necessary
 --  , ((modm .|. ctrlm, xK_h       ), spawn "/home/jerry/.screenlayout/verticalDuo.sh") -- 2 monitors stacked vertically
 --  , ((modm .|. ctrlm, xK_y       ), spawn "/home/jerry/.screenlayout/startup.sh")     -- default layout
@@ -515,6 +516,7 @@ myStartupHook = do
   spawn "synclient MaxTapTime=0"
   spawn "synclient PalmDetect=1"
   spawn "synclient vertedgescroll=0"
+  spawn "synclient CoastingSpeed=1"
 --spawn "xmodmap .Xmodmap"
 --spawn "/home/jerry/.xmonad/autostart" -- runs my startup programs
 
