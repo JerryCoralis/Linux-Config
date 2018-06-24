@@ -1,0 +1,19 @@
+# tab management
+map t Vomnibar.activateTabSelection
+unmap T
+unmap u
+map u visitPreviousTab
+
+# vim like scrolling
+unmap d
+map <c-d> scrollPageDown
+map <c-u> scrollPageUp
+
+# misc
+map \ passNextKey
+unmap r
+unmap p
+
+# conflict with video speed controller
+unmap ]]
+unmap [[
